@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
             minute: '2-digit'
         });
 
-        footerElement.innerHTML = `© ${currentYear} · GNENESSEMIN DJEAMIN YVES · Last Modified: ${formattedDate}`;
+        footerElement.innerHTML = `© ${currentYear} · GNENESSEMIN DJEAMIN YVES · COTE D'IVOIRE · Last Modified: ${formattedDate}`;
     }
 
     // ========================================
