@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album de Temples · WDD131</title>
+
+    <!-- Google Fonts · Typographie élégante -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS : mobile-first → d'abord le petit, ensuite le grand -->
+    <link rel="stylesheet" href="styles/temples.css">
+    <link rel="stylesheet" href="styles/temples-large.css">
+
+    <!-- JavaScript différé -->
+    <script src="scripts/temples.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">📸 Temple Album</div>
+        <nav>
+            <!-- Le bouton hamburger sera injecté ici par JavaScript -->
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Anciens</a></li>
+                <li><a href="#">Récents</a></li>
+                <li><a href="#">Grands</a></li>
+                <li><a href="#">Petits</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="album-grid">
+        <h1>Ma Collection de Temples</h1>
+
+        <!-- Figure 1 -->
+        <figure>
+            <img src="images/salt-lake.jpg" alt="Temple de Salt Lake City" loading="lazy">
+            <figcaption>Salt Lake City, Utah</figcaption>
+        </figure>
+
+        <!-- Figure 2 -->
+        <figure>
+            <img src="images/paris.jpg" alt="Temple de Paris" loading="lazy">
+            <figcaption>Paris, France</figcaption>
+        </figure>
+
+        <!-- Figure 3 -->
+        <figure>
+            <img src="images/rome.jpg" alt="Temple de Rome" loading="lazy">
+            <figcaption>Rome, Italie</figcaption>
+        </figure>
+
+        <!-- Figure 4 -->
+        <figure>
+            <img src="images/tokyo.jpg" alt="Temple de Tokyo" loading="lazy">
+            <figcaption>Tokyo, Japon</figcaption>
+        </figure>
+
+        <!-- Figure 5 -->
+        <figure>
+            <img src="images/laie.jpg" alt="Temple de Laie" loading="lazy">
+            <figcaption>Laie, Hawaï</figcaption>
+        </figure>
+
+        <!-- Figure 6 -->
+        <figure>
+            <img src="images/sao-paulo.jpg" alt="Temple de São Paulo" loading="lazy">
+            <figcaption>São Paulo, Brésil</figcaption>
+        </figure>
+
+        <!-- Figure 7 -->
+        <figure>
+            <img src="images/london.jpg" alt="Temple de Londres" loading="lazy">
+            <figcaption>Londres, Angleterre</figcaption>
+        </figure>
+
+        <!-- Figure 8 -->
+        <figure>
+            <img src="images/mexico.jpg" alt="Temple de Mexico" loading="lazy">
+            <figcaption>Mexico, Mexique</figcaption>
+        </figure>
+
+        <!-- Figure 9 -->
+        <figure>
+            <img src="images/sydney.jpg" alt="Temple de Sydney" loading="lazy">
+            <figcaption>Sydney, Australie</figcaption>
+        </figure>
+
+        <!-- Figure 10 (pour faire bonne mesure) -->
+        <figure>
+            <img src="images/aba.jpg" alt="Temple d'Aba" loading="lazy">
+            <figcaption>Aba, Nigeria</figcaption>
+        </figure>
+    </main>
+
+    <footer>
+        <p id="footer-info"></p>
+    </footer>
+</body>
+
+</html>

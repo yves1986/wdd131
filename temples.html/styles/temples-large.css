@@ -1,0 +1,91 @@
+/* ===== STYLES POUR ÉCRANS LARGES (tablette, desktop) ===== */
+@media screen and (min-width: 650px) {
+
+    /* ----- HEADER & NAVIGATION ----- */
+    header {
+        padding: 1rem 2rem;
+    }
+
+    /* Cacher le bouton hamburger */
+    #menu-button {
+        display: none !important;
+        /* Forcé caché */
+    }
+
+    /* Afficher le menu normalement */
+    nav ul {
+        display: flex !important;
+        /* Forcé visible */
+        flex-direction: row;
+        position: static;
+        width: auto;
+        background-color: transparent;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 0 0 0 1.5rem;
+    }
+
+    nav ul li a {
+        padding: 0.5rem 0;
+        color: white;
+        position: relative;
+    }
+
+    /* Effet souligné au hover (plus élégant) */
+    nav ul li a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #e67e22;
+        transition: width 0.3s;
+    }
+
+    nav ul li a:hover::after {
+        width: 100%;
+    }
+
+    nav ul li a:hover {
+        background-color: transparent;
+        padding-left: 0;
+        /* Annuler l'effet mobile */
+    }
+
+    /* ----- MAIN & GRILLE (2 à 4 colonnes selon écran) ----- */
+    .album-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+
+    main h1 {
+        font-size: 2.5rem;
+        margin-bottom: 2.5rem;
+    }
+
+    /* ----- FIGURES LÉGÈREMENT PLUS GRANDES ----- */
+    figure img {
+        height: 280px;
+    }
+
+    figcaption {
+        font-size: 1.2rem;
+        padding: 1.2rem;
+    }
+}
+
+/* Écrans très larges (desktop > 1200px) */
+@media screen and (min-width: 1200px) {
+    .album-grid {
+        grid-template-columns: repeat(4, 1fr);
+        /* 4 colonnes fixes */
+    }
+
+    header {
+        padding: 1rem 3rem;
+    }
+}
