@@ -84,6 +84,7 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     color: white;
+    /* CHANGÉ de #333 à white pour le contraste */
     padding: 0.75rem 1rem;
     display: block;
     font-weight: 400;
@@ -188,7 +189,7 @@ footer {
     opacity: 0.9;
 }
 
-/* Decorative little heart */
+/* Decorative little star */
 footer::before {
     content: '✧';
     display: block;
