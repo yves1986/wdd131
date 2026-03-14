@@ -1,26 +1,26 @@
 /**
- * temples.js - Fonctionnalités pour l'album photo
- * WDD131 - Semaine 02
+ * temples.js - Functionality for the photo album
+ * WDD131 - Week 02
  */
 
 // ============================================
-// 1. ATTENDRE QUE LE DOM SOIT CHARGÉ
+// 1. WAIT FOR DOM TO LOAD
 // ============================================
 document.addEventListener('DOMContentLoaded', function () {
 
     // ========================================
-    // 2. FOOTER DYNAMIQUE (copyright + modification)
+    // 2. DYNAMIC FOOTER (copyright + modification)
     // ========================================
     function updateFooter() {
         const footerElement = document.getElementById('footer-info');
         if (!footerElement) return;
 
         const currentYear = new Date().getFullYear();
-        const lastModified = document.lastModified;  // Date de dernière modification
+        const lastModified = document.lastModified;  // Last modified date
 
-        // Formatage plus lisible de la date
+        // More readable date formatting
         const lastModDate = new Date(lastModified);
-        const formattedDate = lastModDate.toLocaleDateString('fr-FR', {
+        const formattedDate = lastModDate.toLocaleDateString('en-US', {
             year: 'numeric',
             month: 'long',
             day: 'numeric',
@@ -28,11 +28,11 @@ document.addEventListener('DOMContentLoaded', function () {
             minute: '2-digit'
         });
 
-        footerElement.innerHTML = `© ${currentYear} · Votre Nom · Dernière modification : ${formattedDate}`;
+        footerElement.innerHTML = `© ${currentYear} · Your Name · Last Modified: ${formattedDate}`;
     }
 
     // ========================================
-    // 3. MENU HAMBURGER
+    // 3. HAMBURGER MENU
     // ========================================
     function setupHamburgerMenu() {
         const nav = document.querySelector('nav');
@@ -40,67 +40,67 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (!nav || !navUl) return;
 
-        // Créer le bouton hamburger
+        // Create hamburger button
         const hamburgerBtn = document.createElement('button');
         hamburgerBtn.id = 'menu-button';
-        hamburgerBtn.setAttribute('aria-label', 'Menu de navigation');
+        hamburgerBtn.setAttribute('aria-label', 'Navigation menu');
         hamburgerBtn.textContent = '☰';
 
-        // Insérer le bouton DANS le nav, AVANT le ul
+        // Insert the button INSIDE the nav, BEFORE the ul
         nav.insertBefore(hamburgerBtn, navUl);
 
-        // État du menu (fermé par défaut)
+        // Menu state (closed by default)
         let menuOpen = false;
 
-        // Fonction pour basculer le menu
+        // Function to toggle menu
         function toggleMenu() {
             menuOpen = !menuOpen;
             navUl.classList.toggle('show');
 
-            // Changer l'icône ☰ ↔ ✕
+            // Change icon ☰ ↔ ✕
             hamburgerBtn.textContent = menuOpen ? '✕' : '☰';
 
-            // Attribut ARIA pour accessibilité
+            // ARIA attribute for accessibility
             hamburgerBtn.setAttribute('aria-expanded', menuOpen);
         }
 
-        // Écouter le clic sur le bouton
+        // Listen for button click
         hamburgerBtn.addEventListener('click', function (e) {
             e.stopPropagation();
             toggleMenu();
         });
 
-        // Optionnel : Fermer le menu quand on clique sur un lien (mobile)
+        // Optional: Close menu when clicking a link (mobile)
         const navLinks = document.querySelectorAll('nav ul li a');
         navLinks.forEach(link => {
             link.addEventListener('click', function () {
-                // Vérifier si on est en mode mobile (bouton visible)
+                // Check if we're in mobile mode (button visible)
                 const isMobile = window.getComputedStyle(hamburgerBtn).display !== 'none';
 
                 if (isMobile && menuOpen) {
-                    toggleMenu();  // Fermer le menu
+                    toggleMenu();  // Close menu
                 }
             });
         });
 
-        // Optionnel : Fermer le menu en cliquant ailleurs
+        // Optional: Close menu when clicking elsewhere
         document.addEventListener('click', function (e) {
             const isMobile = window.getComputedStyle(hamburgerBtn).display !== 'none';
 
             if (isMobile && menuOpen && !nav.contains(e.target)) {
-                toggleMenu();  // Fermer si on clique en dehors
+                toggleMenu();  // Close if clicking outside
             }
         });
     }
 
     // ========================================
-    // 4. EXÉCUTER LES FONCTIONS
+    // 4. EXECUTE FUNCTIONS
     // ========================================
     updateFooter();
     setupHamburgerMenu();
 
     // ========================================
-    // 5. GESTION DU REDIMENSIONNEMENT (optionnel)
+    // 5. RESIZE HANDLING (optional)
     // ========================================
     window.addEventListener('resize', function () {
         const hamburgerBtn = document.getElementById('menu-button');
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (!hamburgerBtn || !navUl) return;
 
-        // Si on passe en mode desktop (>650px) et que le menu est ouvert, le fermer
+        // If switching to desktop mode (>650px) and menu is open, close it
         if (window.innerWidth >= 650 && navUl.classList.contains('show')) {
             navUl.classList.remove('show');
             hamburgerBtn.textContent = '☰';

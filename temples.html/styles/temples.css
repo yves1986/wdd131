@@ -1,4 +1,4 @@
-/* ===== STYLES DE BASE (MOBILE FIRST) ===== */
+/* ===== BASE STYLES (MOBILE FIRST) ===== */
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +10,7 @@ body {
     line-height: 1.6;
     color: #333;
     background-color: #faf9f6;
-    /* Fond crème très clair */
+    /* Light cream background */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -19,7 +19,7 @@ body {
 /* ===== HEADER ===== */
 header {
     background-color: #2c3e50;
-    /* Bleu nuit élégant */
+    /* Elegant navy blue */
     color: white;
     padding: 1rem;
     display: flex;
@@ -36,7 +36,7 @@ header {
     letter-spacing: 1px;
 }
 
-/* ===== BOUTON HAMBURGER ===== */
+/* ===== HAMBURGER BUTTON ===== */
 #menu-button {
     font-size: 2rem;
     background: none;
@@ -44,7 +44,7 @@ header {
     color: white;
     cursor: pointer;
     display: block;
-    /* Visible seulement en mobile */
+    /* Visible only on mobile */
     padding: 0.25rem 0.75rem;
     border-radius: 5px;
     transition: background-color 0.3s;
@@ -54,11 +54,11 @@ header {
     background-color: #34495e;
 }
 
-/* ===== MENU DE NAVIGATION (mobile : caché par défaut) ===== */
+/* ===== NAVIGATION MENU (mobile: hidden by default) ===== */
 nav ul {
     list-style-type: none;
     display: none;
-    /* Caché par défaut */
+    /* Hidden by default */
     flex-direction: column;
     background-color: #34495e;
     position: absolute;
@@ -71,7 +71,7 @@ nav ul {
     z-index: 100;
 }
 
-/* Classe ajoutée par JS pour afficher le menu */
+/* Class added by JS to show the menu */
 nav ul.show {
     display: flex;
 }
@@ -90,7 +90,7 @@ nav ul li a {
     transition: background-color 0.3s, padding-left 0.3s;
 }
 
-/* EFFET HOVER exigé */
+/* REQUIRED HOVER EFFECT */
 nav ul li a:hover {
     background-color: #2c3e50;
     padding-left: 1.5rem;
@@ -103,7 +103,7 @@ main {
     margin: 0 auto;
     padding: 2rem 1rem;
     flex: 1;
-    /* Pour coller le footer en bas */
+    /* Pushes footer to bottom */
 }
 
 main h1 {
@@ -125,18 +125,18 @@ main h1::after {
     width: 80px;
     height: 3px;
     background-color: #e67e22;
-    /* Accent orange */
+    /* Orange accent */
 }
 
-/* ===== GRILLE CSS (mobile : 1 colonne) ===== */
+/* ===== CSS GRID (mobile: 1 column) ===== */
 .album-grid {
     display: grid;
     grid-template-columns: 1fr;
-    /* 1 seule colonne en mobile */
+    /* Single column on mobile */
     gap: 2rem;
 }
 
-/* ===== FIGURES (CARTES IMAGES) ===== */
+/* ===== FIGURES (IMAGE CARDS) ===== */
 figure {
     background: white;
     border-radius: 12px;
@@ -155,7 +155,7 @@ figure img {
     width: 100%;
     height: 250px;
     object-fit: cover;
-    /* Maintient le ratio sans déformation */
+    /* Maintains aspect ratio without distortion */
     display: block;
     transition: transform 0.5s;
 }
@@ -188,7 +188,7 @@ footer {
     opacity: 0.9;
 }
 
-/* Petit coeur décoratif */
+/* Decorative little heart */
 footer::before {
     content: '✧';
     display: block;

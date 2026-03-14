@@ -1,4 +1,4 @@
-/* ===== STYLES POUR ÉCRANS LARGES (tablette, desktop) ===== */
+/* ===== STYLES FOR LARGER SCREENS (tablet, desktop) ===== */
 @media screen and (min-width: 650px) {
 
     /* ----- HEADER & NAVIGATION ----- */
@@ -6,16 +6,16 @@
         padding: 1rem 2rem;
     }
 
-    /* Cacher le bouton hamburger */
+    /* Hide hamburger button */
     #menu-button {
         display: none !important;
-        /* Forcé caché */
+        /* Force hidden */
     }
 
-    /* Afficher le menu normalement */
+    /* Show normal menu */
     nav ul {
         display: flex !important;
-        /* Forcé visible */
+        /* Force visible */
         flex-direction: row;
         position: static;
         width: auto;
@@ -34,7 +34,7 @@
         position: relative;
     }
 
-    /* Effet souligné au hover (plus élégant) */
+    /* Underline effect on hover (more elegant) */
     nav ul li a::after {
         content: '';
         position: absolute;
@@ -53,10 +53,10 @@
     nav ul li a:hover {
         background-color: transparent;
         padding-left: 0;
-        /* Annuler l'effet mobile */
+        /* Cancel mobile effect */
     }
 
-    /* ----- MAIN & GRILLE (2 à 4 colonnes selon écran) ----- */
+    /* ----- MAIN & GRID (2 to 4 columns based on screen) ----- */
     .album-grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 2rem;
@@ -67,7 +67,7 @@
         margin-bottom: 2.5rem;
     }
 
-    /* ----- FIGURES LÉGÈREMENT PLUS GRANDES ----- */
+    /* ----- SLIGHTLY LARGER FIGURES ----- */
     figure img {
         height: 280px;
     }
@@ -78,11 +78,11 @@
     }
 }
 
-/* Écrans très larges (desktop > 1200px) */
+/* Very large screens (desktop > 1200px) */
 @media screen and (min-width: 1200px) {
     .album-grid {
         grid-template-columns: repeat(4, 1fr);
-        /* 4 colonnes fixes */
+        /* Fixed 4 columns */
     }
 
     header {
