@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
             minute: '2-digit'
         });
 
-        footerElement.innerHTML = `© ${currentYear} · Your Name · Last Modified: ${formattedDate}`;
+        footerElement.innerHTML = `© ${currentYear} · GNENESSEMIN DJEAMIN YVES · Last Modified: ${formattedDate}`;
     }
 
     // ========================================
