@@ -1,0 +1,249 @@
+/* Global Variables */
+:root {
+    --primary-color: #009e60;
+    /* Green - from Ivorian flag */
+    --secondary-color: #f7b32b;
+    /* Orange - from Ivorian flag */
+    --accent-color: #ef7e32;
+    /* Orange accent */
+    --white: #ffffff;
+    --light-gray: #f5f5f5;
+    --dark-gray: #333333;
+    --text-color: #2c3e50;
+    --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-gray);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Hero Image */
+.hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Main Content */
+main {
+    padding: 2rem;
+}
+
+/* Section Styles */
+section {
+    margin-bottom: 2.5rem;
+}
+
+section h2 {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+/* About Section */
+.about-content {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.about-content .text {
+    flex: 2;
+    min-width: 250px;
+}
+
+.about-content .text p {
+    margin-bottom: 1rem;
+}
+
+.facts {
+    flex: 1;
+    min-width: 250px;
+    background-color: var(--light-gray);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.facts h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.facts ul {
+    list-style: none;
+}
+
+.facts li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.facts li strong {
+    color: var(--accent-color);
+}
+
+/* Weather Section */
+.weather-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    background-color: var(--light-gray);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.weather-icon-mobile {
+    flex-shrink: 0;
+}
+
+.weather-icon-mobile img {
+    width: 60px;
+    height: 60px;
+}
+
+.weather-info {
+    flex: 1;
+}
+
+.weather-info p {
+    margin: 0.5rem 0;
+}
+
+.weather-info strong {
+    color: var(--primary-color);
+}
+
+/* Attractions Section */
+.attractions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.attraction-card {
+    background-color: var(--light-gray);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.attraction-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.attraction-card h3 {
+    color: var(--secondary-color);
+    margin-bottom: 0.75rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-gray);
+    color: var(--white);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+}
+
+/* Pseudo-element for weather icon in wider view */
+.weather h2::after {
+    content: " ⛅";
+    font-size: 1.8rem;
+    margin-left: 0.5rem;
+}
+
+/* Mobile View - Hide pseudo-element icon on mobile */
+@media (max-width: 768px) {
+    .weather h2::after {
+        display: none;
+    }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    main {
+        padding: 1rem;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    section h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+
+    .weather-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .attractions-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .attractions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1025px) {
+    .attractions-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .attraction-card {
+        transition: none;
+    }
+}

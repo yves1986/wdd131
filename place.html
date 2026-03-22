@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Discover the beauty and culture of Côte d'Ivoire - a West African nation known for its rich traditions, beautiful landscapes, and vibrant cities.">
+    <title>Côte d'Ivoire | Discover West Africa</title>
+    <link rel="stylesheet" href="css/place.css">
+    <script src="js/place.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Côte d'Ivoire</h1>
+            <p class="subtitle">The Pearl of West Africa</p>
+        </header>
+
+        <!-- Hero Image with srcset -->
+        <div class="hero">
+            <picture>
+                <source srcset="images/hero-small.webp" media="(max-width: 480px)">
+                <source srcset="images/hero-medium.webp" media="(max-width: 768px)">
+                <source srcset="images/hero-large.webp" media="(min-width: 769px)">
+                <img src="images/hero-large.webp" alt="Beautiful landscape of Côte d'Ivoire" loading="eager">
+            </picture>
+        </div>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Section: About the Country -->
+            <section class="about">
+                <h2>About the Country</h2>
+                <div class="about-content">
+                    <div class="text">
+                        <p>Côte d'Ivoire, also known as Ivory Coast, is a West African country bordered by Liberia,
+                            Guinea, Mali, Burkina Faso, and Ghana. It is the world's largest producer of cocoa beans,
+                            contributing to about 40% of the global supply.</p>
+                        <p>The country gained independence from France in 1960 and has since become one of the most
+                            economically stable nations in West Africa. The official language is French, and the capital
+                            city is Yamoussoukro, while Abidjan serves as the economic capital.</p>
+                        <p>Côte d'Ivoire is known for its vibrant culture, traditional music, and diverse ethnic groups
+                            including the Akan, Krou, and Mandé peoples.</p>
+                    </div>
+                    <div class="facts">
+                        <h3>Key Facts</h3>
+                        <ul>
+                            <li><strong>Capital:</strong> Yamoussoukro</li>
+                            <li><strong>Population:</strong> ~27 million</li>
+                            <li><strong>Official Language:</strong> French</li>
+                            <li><strong>Currency:</strong> West African CFA Franc</li>
+                            <li><strong>Largest City:</strong> Abidjan</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Weather -->
+            <section class="weather">
+                <h2>Weather</h2>
+                <div class="weather-content">
+                    <div class="weather-icon-mobile">
+                        <img src="images/weather-icon.svg" alt="Weather icon" width="60" height="60">
+                    </div>
+                    <div class="weather-info">
+                        <p><strong>Temperature:</strong> <span id="temperature">28</span>°C</p>
+                        <p><strong>Conditions:</strong> Partly Cloudy</p>
+                        <p><strong>Humidity:</strong> 78%</p>
+                        <p><strong>Wind Speed:</strong> <span id="wind-speed">12</span> km/h</p>
+                        <p><strong>Wind Chill:</strong> <span id="wind-chill">--</span></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Top Attractions -->
+            <section class="attractions">
+                <h2>Top Attractions</h2>
+                <div class="attractions-grid">
+                    <div class="attraction-card">
+                        <h3>Basilica of Our Lady of Peace</h3>
+                        <p>The largest church in the world, located in Yamoussoukro, inspired by St. Peter's Basilica in
+                            Rome.</p>
+                    </div>
+                    <div class="attraction-card">
+                        <h3>Tai National Park</h3>
+                        <p>A UNESCO World Heritage site and one of the last remaining primary rainforests in West
+                            Africa.</p>
+                    </div>
+                    <div class="attraction-card">
+                        <h3>Grand-Bassam</h3>
+                        <p>A historic colonial town and UNESCO World Heritage site with beautiful beaches and
+                            architecture.</p>
+                    </div>
+                    <div class="attraction-card">
+                        <h3>Abidjan's St. Paul's Cathedral</h3>
+                        <p>A stunning modernist cathedral with a unique architectural design overlooking the city.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; <span id="current-year"></span> Côte d'Ivoire Travel Guide. Last modified: <span
+                    id="last-modified"></span></p>
+        </footer>
+    </div>
+</body>
+
+</html>
