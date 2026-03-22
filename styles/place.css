@@ -1,8 +1,8 @@
-/* CSS Variables */
+/* CSS Variables - Côte d'Ivoire flag colors (orange, white, green) */
 :root {
+    --orange: #f77f00;
+    --orange-dark: #e56700;
     --green: #009e60;
-    --orange: #f7b32b;
-    --orange-dark: #ef7e32;
     --white: #ffffff;
     --light: #faf9f8;
     --gray-light: #f0f0f0;
@@ -26,294 +26,162 @@ body {
     line-height: 1.6;
     color: var(--text);
     background-color: var(--light);
-    overflow-x: hidden;
 }
 
 h1,
 h2,
-h3,
-h4 {
+h3 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
 }
 
-/* Navigation */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: var(--shadow);
-    z-index: 1000;
-    padding: 1rem 0;
+/* Header */
+.page-header {
+    text-align: center;
+    margin: 2rem 0 1rem;
+    padding-top: 1rem;
 }
 
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
+.page-header h1 {
+    font-size: 2.5rem;
+    color: var(--orange);
+    margin-bottom: 0.5rem;
 }
 
-.logo {
+.flag-stripes {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    justify-content: center;
+    gap: 0.25rem;
+    margin-top: 0.5rem;
 }
 
 .flag-stripe {
-    width: 10px;
-    height: 30px;
+    width: 40px;
+    height: 4px;
     border-radius: 2px;
-}
-
-.flag-stripe.green {
-    background-color: var(--green);
 }
 
 .flag-stripe.orange {
     background-color: var(--orange);
 }
 
-.logo-text {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-    font-size: 1.5rem;
-    color: var(--dark);
+.flag-stripe.white {
+    background-color: var(--gray-light);
 }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
+.flag-stripe.green {
+    background-color: var(--green);
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: var(--dark);
-    font-weight: 600;
-    transition: var(--transition);
-    position: relative;
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--orange);
-    transition: var(--transition);
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-.nav-links a:hover {
-    color: var(--orange-dark);
-}
-
-/* Hero Section */
-.hero-section {
-    margin-top: 70px;
-    position: relative;
-}
-
-.hero-image {
-    position: relative;
-    height: 90vh;
-    min-height: 500px;
-    overflow: hidden;
-}
-
-.hero-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    animation: zoomIn 20s ease-out;
-}
-
-@keyframes zoomIn {
-    from {
-        transform: scale(1.1);
-    }
-
-    to {
-        transform: scale(1);
-    }
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(0, 158, 96, 0.7) 0%, rgba(247, 179, 43, 0.7) 100%);
-}
-
-.hero-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: var(--white);
-    z-index: 2;
-    width: 100%;
-    padding: 0 2rem;
-}
-
-.hero-title {
-    font-size: 4rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
-    animation: fadeInUp 1s ease;
-}
-
-.hero-subtitle {
-    font-size: 1.5rem;
-    font-weight: 500;
-    margin-bottom: 1.5rem;
-    animation: fadeInUp 1s ease 0.2s backwards;
-}
-
-.hero-divider {
-    width: 80px;
-    height: 3px;
-    background: var(--white);
-    margin: 1.5rem auto;
-    animation: fadeInUp 1s ease 0.4s backwards;
-}
-
-.hero-tagline {
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto;
-    opacity: 0.9;
-    animation: fadeInUp 1s ease 0.6s backwards;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Main Content */
-.main-content {
+/* Main Container */
+.container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 4rem 2rem;
+    padding: 0 2rem 2rem;
 }
 
-/* Section Styles */
-.section {
-    margin-bottom: 5rem;
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.section-header h2 {
-    font-size: 2.5rem;
-    color: var(--dark);
-    margin-bottom: 0.5rem;
-}
-
-.section-line {
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--green), var(--orange));
-    margin: 0 auto;
-    border-radius: 2px;
-}
-
-/* About Section */
-.about-grid {
+/* Layout Grid - Mobile First */
+.place-grid {
     display: grid;
-    grid-template-columns: 1fr 0.8fr;
-    gap: 3rem;
-    align-items: start;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
 }
 
-.about-text p {
-    margin-bottom: 1.5rem;
-    font-size: 1.05rem;
-    color: var(--text);
-    line-height: 1.8;
-}
-
-.highlight {
-    color: var(--orange-dark);
-    font-weight: 700;
-}
-
-.facts-card {
-    background: linear-gradient(135deg, var(--green) 0%, var(--orange) 100%);
-    padding: 2rem;
-    border-radius: 20px;
-    color: var(--white);
+/* Image Styles */
+.place-image {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
     box-shadow: var(--shadow);
-    transition: var(--transition);
 }
 
-.facts-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
+.place-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
 }
 
-.facts-card h3 {
+/* Data Section (Key Facts) */
+.data-section {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.data-section h2 {
+    color: var(--orange);
+    border-bottom: 2px solid var(--green);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
     font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
 }
 
-.fact-item {
+.data-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem 1.5rem;
+}
+
+.data-item {
     display: flex;
     justify-content: space-between;
-    padding: 0.75rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid var(--gray-light);
+    padding: 0.5rem 0;
 }
 
-.fact-item:last-child {
-    border-bottom: none;
+.data-label {
+    font-weight: 700;
+    color: var(--orange);
 }
 
-.fact-label {
-    font-weight: 600;
-}
-
-.fact-value {
-    font-weight: 400;
+.data-value {
+    color: var(--dark);
+    text-align: right;
 }
 
 /* Weather Section */
 .weather-section {
     background: linear-gradient(135deg, var(--gray-light) 0%, var(--light) 100%);
-    border-radius: 30px;
-    padding: 2rem;
-    margin-bottom: 5rem;
+    border-radius: 20px;
+    padding: 1.5rem;
 }
 
-/* ============================================ */
-/* WEATHER ICONS - CORRECTIONS FOR ASSIGNMENT   */
-/* ============================================ */
+.weather-section h2 {
+    color: var(--orange);
+    border-bottom: 2px solid var(--green);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    display: inline-block;
+}
 
-/* Mobile view: show SVG icon, hide emoji container */
+/* Pseudo-element for weather icon (desktop only) */
+.weather-section h2::after {
+    content: " ⛅";
+    font-size: 1.8rem;
+    margin-left: 0.5rem;
+}
+
+.weather-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.weather-main {
+    text-align: center;
+    flex: 1;
+}
+
+/* Weather Icons - Mobile SVG / Desktop Emoji */
 .weather-icon-mobile {
     display: block;
     margin-bottom: 1rem;
@@ -321,65 +189,6 @@ h4 {
 
 .weather-icon-desktop {
     display: none;
-}
-
-/* Pseudo-element for weather icon after Weather heading (desktop only) */
-.weather-section h2::after {
-    content: " ⛅";
-    font-size: 1.8rem;
-    margin-left: 0.5rem;
-}
-
-/* Desktop view (min-width: 769px) */
-@media (min-width: 769px) {
-
-    /* Hide SVG icon on desktop */
-    .weather-icon-mobile {
-        display: none;
-    }
-
-    /* Show emoji container on desktop */
-    .weather-icon-desktop {
-        display: block;
-    }
-
-    .weather-icon-desktop .weather-emoji {
-        font-size: 4rem;
-        margin-bottom: 1rem;
-    }
-
-    /* Keep pseudo-element visible on desktop */
-    .weather-section h2::after {
-        display: inline-block;
-    }
-}
-
-/* Mobile view: hide pseudo-element */
-@media (max-width: 768px) {
-    .weather-section h2::after {
-        display: none;
-    }
-}
-
-/* ============================================ */
-/* END OF WEATHER ICON CORRECTIONS              */
-/* ============================================ */
-
-.weather-card {
-    background: var(--white);
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: var(--shadow);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-}
-
-.weather-main {
-    text-align: center;
-    flex: 1;
 }
 
 .weather-temp {
@@ -392,7 +201,7 @@ h4 {
 .temp-value {
     font-size: 3rem;
     font-weight: 800;
-    color: var(--green);
+    color: var(--orange);
 }
 
 .temp-unit {
@@ -401,7 +210,7 @@ h4 {
 }
 
 .weather-condition {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--gray);
     margin-top: 0.5rem;
 }
@@ -409,20 +218,20 @@ h4 {
 .weather-details {
     flex: 1;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 1rem;
 }
 
 .detail-item {
     text-align: center;
-    padding: 1rem;
+    padding: 0.75rem;
     background: var(--gray-light);
     border-radius: 12px;
 }
 
 .detail-label {
     display: block;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-weight: 600;
     color: var(--gray);
     text-transform: uppercase;
@@ -432,79 +241,23 @@ h4 {
 
 .detail-value {
     display: inline-block;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--dark);
 }
 
 .detail-unit {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: var(--gray);
-}
-
-/* Attractions Section */
-.attractions-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2rem;
-}
-
-.attraction-card {
-    background: var(--white);
-    border-radius: 20px;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    cursor: pointer;
-}
-
-.attraction-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-hover);
-}
-
-.card-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.attraction-card h3 {
-    font-size: 1.2rem;
-    color: var(--green);
-    margin-bottom: 1rem;
-}
-
-.attraction-card p {
-    font-size: 0.95rem;
-    color: var(--gray);
-    line-height: 1.6;
 }
 
 /* Footer */
 .footer {
     background: var(--dark-gray);
     color: var(--white);
-    padding: 3rem 2rem;
+    padding: 2rem;
     text-align: center;
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.footer-logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-.footer-logo .flag-stripe {
-    width: 8px;
-    height: 24px;
+    margin-top: 2rem;
 }
 
 .footer p {
@@ -517,79 +270,69 @@ h4 {
     opacity: 0.6;
 }
 
-/* Media Queries */
-@media (max-width: 768px) {
-    .navbar {
-        padding: 0.75rem 0;
+/* Desktop Layout (min-width: 769px) - Two columns: Image left, Data right */
+@media (min-width: 769px) {
+    .container {
+        padding: 0 3rem 2rem;
     }
 
-    .nav-container {
-        flex-direction: column;
-        gap: 0.5rem;
+    .page-header h1 {
+        font-size: 3rem;
     }
 
-    .nav-links {
-        gap: 1rem;
+    .place-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: start;
     }
 
-    .hero-title {
-        font-size: 2rem;
+    /* Image on LEFT column */
+    .place-image {
+        grid-column: 1;
+        grid-row: 1;
     }
 
-    .hero-subtitle {
-        font-size: 1rem;
+    /* Data section on RIGHT column */
+    .data-section {
+        grid-column: 2;
+        grid-row: 1;
     }
 
-    .hero-tagline {
-        font-size: 0.9rem;
+    /* Weather section spans both columns at the bottom */
+    .weather-section {
+        grid-column: 1 / -1;
     }
 
-    .main-content {
-        padding: 2rem 1rem;
+    /* Weather Icons - Desktop: hide SVG, show emoji */
+    .weather-icon-mobile {
+        display: none;
     }
 
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+    .weather-icon-desktop {
+        display: block;
     }
 
-    .section-header h2 {
-        font-size: 1.8rem;
-    }
-
-    .weather-card {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .weather-details {
-        width: 100%;
-    }
-
-    .attractions-grid {
-        grid-template-columns: 1fr;
+    .weather-icon-desktop .weather-emoji {
+        font-size: 4rem;
+        margin-bottom: 1rem;
     }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
-    .attractions-grid {
-        grid-template-columns: repeat(2, 1fr);
+/* Mobile: hide pseudo-element */
+@media (max-width: 768px) {
+    .weather-section h2::after {
+        display: none;
     }
 }
 
 /* Print Styles */
 @media print {
-
-    .navbar,
-    .hero-overlay {
+    .footer {
         display: none;
     }
 
-    .hero-section {
-        margin-top: 0;
-    }
-
-    .attraction-card {
-        break-inside: avoid;
+    .weather-icon-mobile,
+    .weather-icon-desktop {
+        display: block !important;
     }
 }
