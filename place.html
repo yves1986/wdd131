@@ -5,110 +5,446 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Discover the beauty and culture of Côte d'Ivoire - a West African nation known for its rich traditions, beautiful landscapes, and vibrant cities.">
+        content="Discover Côte d'Ivoire - a West African nation known for its rich traditions, beautiful landscapes, and vibrant cities.">
     <title>Côte d'Ivoire | The Pearl of West Africa</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="css/place.css">
-    <script src="js/place.js" defer></script>
+    <style>
+        /* CSS Variables - Côte d'Ivoire flag colors (orange, white, green) */
+        :root {
+            --orange: #f77f00;
+            --orange-dark: #e56700;
+            --green: #009e60;
+            --white: #ffffff;
+            --light: #faf9f8;
+            --gray-light: #f0f0f0;
+            --gray: #6c757d;
+            --dark: #2c3e2f;
+            --dark-gray: #2d2f36;
+            --text: #2c3e50;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-top: 1rem;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            color: var(--orange);
+            margin-bottom: 0.5rem;
+        }
+
+        .flag-stripes {
+            display: flex;
+            justify-content: center;
+            gap: 0.25rem;
+            margin-top: 0.5rem;
+        }
+
+        .flag-stripe {
+            width: 40px;
+            height: 4px;
+            border-radius: 2px;
+        }
+
+        .flag-stripe.orange {
+            background-color: var(--orange);
+        }
+
+        .flag-stripe.white {
+            background-color: var(--gray-light);
+        }
+
+        .flag-stripe.green {
+            background-color: var(--green);
+        }
+
+        /* Layout Grid - Mobile First */
+        .place-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Image Styles */
+        .place-image {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .place-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Data Section (Key Facts) */
+        .data-section {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .data-section h2 {
+            color: var(--orange);
+            border-bottom: 2px solid var(--green);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem 1.5rem;
+        }
+
+        .data-item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--gray-light);
+            padding: 0.5rem 0;
+        }
+
+        .data-label {
+            font-weight: 700;
+            color: var(--orange);
+        }
+
+        .data-value {
+            color: var(--dark);
+            text-align: right;
+        }
+
+        /* Weather Section */
+        .weather-section {
+            background: linear-gradient(135deg, var(--gray-light) 0%, var(--light) 100%);
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .weather-section h2 {
+            color: var(--orange);
+            border-bottom: 2px solid var(--green);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            display: inline-block;
+        }
+
+        /* Pseudo-element for weather icon (desktop only) - like Madagascar model */
+        .weather-section h2::after {
+            content: " ⛅";
+            font-size: 1.8rem;
+            margin-left: 0.5rem;
+        }
+
+        .weather-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .weather-main {
+            text-align: center;
+            flex: 1;
+        }
+
+        /* Weather Icons - Mobile SVG / Desktop Emoji */
+        .weather-icon-mobile {
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .weather-icon-desktop {
+            display: none;
+        }
+
+        .weather-temp {
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            gap: 0.25rem;
+        }
+
+        .temp-value {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--orange);
+        }
+
+        .temp-unit {
+            font-size: 1.5rem;
+            color: var(--gray);
+        }
+
+        .weather-condition {
+            font-size: 1rem;
+            color: var(--gray);
+            margin-top: 0.5rem;
+        }
+
+        .weather-details {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1rem;
+        }
+
+        .detail-item {
+            text-align: center;
+            padding: 0.75rem;
+            background: var(--gray-light);
+            border-radius: 12px;
+        }
+
+        .detail-label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-value {
+            display: inline-block;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .detail-unit {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-gray);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .footer p {
+            margin: 0.5rem 0;
+            opacity: 0.8;
+        }
+
+        .last-modified {
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        /* Desktop Layout (min-width: 769px) - Two columns: Image left, Data right */
+        @media (min-width: 769px) {
+            .container {
+                padding: 2rem 3rem;
+            }
+
+            .page-header h1 {
+                font-size: 3rem;
+            }
+
+            .place-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+                align-items: start;
+            }
+
+            /* Image on LEFT column */
+            .place-image {
+                grid-column: 1;
+                grid-row: 1;
+            }
+
+            /* Data section on RIGHT column */
+            .data-section {
+                grid-column: 2;
+                grid-row: 1;
+            }
+
+            /* Weather section spans both columns at the bottom */
+            .weather-section {
+                grid-column: 1 / -1;
+                margin-top: 0;
+            }
+
+            /* Weather Icons - Desktop: hide SVG, show emoji */
+            .weather-icon-mobile {
+                display: none;
+            }
+
+            .weather-icon-desktop {
+                display: block;
+            }
+
+            .weather-icon-desktop .weather-emoji {
+                font-size: 4rem;
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* Mobile: hide pseudo-element */
+        @media (max-width: 768px) {
+            .weather-section h2::after {
+                display: none;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .footer {
+                display: none;
+            }
+
+            .weather-icon-mobile,
+            .weather-icon-desktop {
+                display: block !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <span class="flag-stripe green"></span>
+    <main class="container">
+        <header class="page-header">
+            <h1>Côte d'Ivoire</h1>
+            <div class="flag-stripes">
                 <span class="flag-stripe orange"></span>
-                <span class="logo-text">CI</span>
+                <span class="flag-stripe white"></span>
+                <span class="flag-stripe green"></span>
             </div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#weather">Weather</a></li>
-                <li><a href="#attractions">Attractions</a></li>
-            </ul>
-        </div>
-    </nav>
+        </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-image">
-            <picture>
-                <source srcset="images/hero-small.webp" media="(max-width: 480px)">
-                <source srcset="images/hero-medium.webp" media="(max-width: 768px)">
-                <source srcset="images/hero-large.webp" media="(min-width: 769px)">
-                <img src="images/hero-large.webp" alt="Beautiful landscape of Côte d'Ivoire" loading="eager">
-            </picture>
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <h1 class="hero-title">Côte d'Ivoire</h1>
-                <p class="hero-subtitle">The Pearl of West Africa</p>
-                <div class="hero-divider"></div>
-                <p class="hero-tagline">Where tradition meets modernity in the heart of West Africa</p>
+        <div class="place-grid">
+            <!-- Image Section - LEFT column in desktop view -->
+            <div class="place-image">
+                <picture>
+                    <source srcset="https://placehold.co/480x320/f77f00/white?text=Côte+d'Ivoire"
+                        media="(max-width: 480px)">
+                    <source srcset="https://placehold.co/768x400/f77f00/white?text=Côte+d'Ivoire"
+                        media="(max-width: 768px)">
+                    <source srcset="https://placehold.co/600x400/f77f00/white?text=Côte+d'Ivoire"
+                        media="(min-width: 769px)">
+                    <img src="https://placehold.co/600x400/f77f00/white?text=Côte+d'Ivoire"
+                        alt="Beautiful landscape of Côte d'Ivoire showing lush greenery and traditional architecture"
+                        loading="eager">
+                </picture>
             </div>
-        </div>
-    </section>
 
-    <main class="main-content">
-        <!-- About Section -->
-        <section id="about" class="section about-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>About the Country</h2>
-                    <div class="section-line"></div>
-                </div>
-                <div class="about-grid">
-                    <div class="about-text">
-                        <p>Côte d'Ivoire, also known as Ivory Coast, is a West African country bordered by Liberia,
-                            Guinea, Mali, Burkina Faso, and Ghana. It is the world's largest producer of cocoa beans,
-                            contributing to about <span class="highlight">40% of the global supply</span>.</p>
-                        <p>The country gained independence from France in 1960 and has since become one of the most
-                            economically stable nations in West Africa. The official language is French, and the capital
-                            city is Yamoussoukro, while Abidjan serves as the economic capital.</p>
-                        <p>Côte d'Ivoire is known for its vibrant culture, traditional music, and diverse ethnic groups
-                            including the Akan, Krou, and Mandé peoples.</p>
+            <!-- Data Section (Key Facts) - RIGHT column in desktop view -->
+            <div class="data-section">
+                <h2>Data</h2>
+                <div class="data-grid">
+                    <div class="data-item">
+                        <span class="data-label">Area:</span>
+                        <span class="data-value">322,463 sq km</span>
                     </div>
-                    <div class="facts-card">
-                        <h3>Key Facts</h3>
-                        <div class="fact-item">
-                            <span class="fact-label">Capital:</span>
-                            <span class="fact-value">Yamoussoukro</span>
-                        </div>
-                        <div class="fact-item">
-                            <span class="fact-label">Population:</span>
-                            <span class="fact-value">~27 million</span>
-                        </div>
-                        <div class="fact-item">
-                            <span class="fact-label">Official Language:</span>
-                            <span class="fact-value">French</span>
-                        </div>
-                        <div class="fact-item">
-                            <span class="fact-label">Currency:</span>
-                            <span class="fact-value">West African CFA Franc</span>
-                        </div>
-                        <div class="fact-item">
-                            <span class="fact-label">Largest City:</span>
-                            <span class="fact-value">Abidjan</span>
-                        </div>
+                    <div class="data-item">
+                        <span class="data-label">Population:</span>
+                        <span class="data-value">~29 million</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">Capital:</span>
+                        <span class="data-value">Yamoussoukro</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">Languages:</span>
+                        <span class="data-value">French</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">Currency:</span>
+                        <span class="data-value">West African CFA Franc</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">Time Zone:</span>
+                        <span class="data-value">UTC+0 (GMT)</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">Calling Code:</span>
+                        <span class="data-value">+225</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">Internet TLD:</span>
+                        <span class="data-value">.ci</span>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Weather Section -->
-        <section id="weather" class="section weather-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Current Weather</h2>
-                    <div class="section-line"></div>
-                </div>
+            <!-- Weather Section - Bottom, spans full width -->
+            <div class="weather-section">
+                <h2>Weather</h2>
                 <div class="weather-card">
                     <div class="weather-main">
-                        <div class="weather-icon-large">
-                            <div class="weather-emoji">⛅</div>
+                        <!-- SVG Icon - Mobile only -->
+                        <div class="weather-icon-mobile">
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" aria-label="Partly cloudy weather icon">
+                                <path
+                                    d="M6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18C8.68629 18 6 15.3137 6 12Z"
+                                    fill="#F77F00" />
+                                <path
+                                    d="M12 4V2M12 22V20M20 12H22M2 12H4M17.6569 6.34315L19.0711 4.92893M4.92893 19.0711L6.34315 17.6569M17.6569 17.6569L19.0711 19.0711M4.92893 4.92893L6.34315 6.34315"
+                                    stroke="#F77F00" stroke-width="2" stroke-linecap="round" />
+                                <path
+                                    d="M19 12C19 14.2091 17.2091 16 15 16H9C6.79086 16 5 14.2091 5 12C5 9.79086 6.79086 8 9 8C9.34085 8 9.67272 8.03786 9.99138 8.1103C10.6247 6.84982 11.9477 6 13.5 6C15.433 6 17 7.567 17 9.5C17 9.655 16.9876 9.8071 16.9637 9.95523C18.1663 10.3022 19 11.4812 19 12.8571V12Z"
+                                    fill="#6C757D" />
+                            </svg>
+                        </div>
+                        <!-- Emoji Icon - Desktop only -->
+                        <div class="weather-icon-desktop">
+                            <div class="weather-emoji" aria-label="Partly cloudy weather">⛅</div>
                         </div>
                         <div class="weather-temp">
                             <span id="temperature" class="temp-value">28</span>
@@ -117,10 +453,6 @@
                         <div class="weather-condition">Partly Cloudy</div>
                     </div>
                     <div class="weather-details">
-                        <div class="detail-item">
-                            <span class="detail-label">Humidity</span>
-                            <span class="detail-value">78%</span>
-                        </div>
                         <div class="detail-item">
                             <span class="detail-label">Wind Speed</span>
                             <span class="detail-value" id="wind-speed">12</span>
@@ -133,56 +465,56 @@
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Attractions Section -->
-        <section id="attractions" class="section attractions-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Top Attractions</h2>
-                    <div class="section-line"></div>
-                </div>
-                <div class="attractions-grid">
-                    <div class="attraction-card">
-                        <div class="card-icon">🏛️</div>
-                        <h3>Basilica of Our Lady of Peace</h3>
-                        <p>The largest church in the world, located in Yamoussoukro, inspired by St. Peter's Basilica in
-                            Rome.</p>
-                    </div>
-                    <div class="attraction-card">
-                        <div class="card-icon">🌳</div>
-                        <h3>Tai National Park</h3>
-                        <p>A UNESCO World Heritage site and one of the last remaining primary rainforests in West
-                            Africa.</p>
-                    </div>
-                    <div class="attraction-card">
-                        <div class="card-icon">🏖️</div>
-                        <h3>Grand-Bassam</h3>
-                        <p>A historic colonial town and UNESCO World Heritage site with beautiful beaches and
-                            architecture.</p>
-                    </div>
-                    <div class="attraction-card">
-                        <div class="card-icon">⛪</div>
-                        <h3>St. Paul's Cathedral</h3>
-                        <p>A stunning modernist cathedral with a unique architectural design overlooking Abidjan.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <span class="flag-stripe green"></span>
-                <span class="flag-stripe orange"></span>
-                <span>Discover Côte d'Ivoire</span>
-            </div>
-            <p>&copy; <span id="current-year"></span> Côte d'Ivoire Travel Guide. All rights reserved.</p>
-            <p class="last-modified">Last modified: <span id="last-modified"></span></p>
-        </div>
+        <p>&copy; <span id="current-year"></span> Gnenessemin Djeamin Yves</p>
+        <p>Côte d'Ivoire</p>
+        <p class="last-modified">Last modified: <span id="last-modified"></span></p>
     </footer>
+
+    <script>
+        // Footer: Current Year and Last Modified
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        const lastModified = document.lastModified;
+        document.getElementById('last-modified').textContent = lastModified;
+
+        // Weather Data for Côte d'Ivoire
+        const temperature = 28; // °C
+        const windSpeed = 12; // km/h
+
+        // Display static weather values
+        document.getElementById('temperature').textContent = temperature;
+        document.getElementById('wind-speed').textContent = windSpeed;
+
+        /**
+         * Calculate wind chill factor
+         * Formula for metric units (°C, km/h):
+         * Wind Chill = 13.12 + 0.6215 * T - 11.37 * (V^0.16) + 0.3965 * T * (V^0.16)
+         */
+        function calculateWindChill(temp, wind) {
+            return Math.round((13.12 + 0.6215 * temp - 11.37 * Math.pow(wind, 0.16) + 0.3965 * temp * Math.pow(wind, 0.16)) * 10) / 10;
+        }
+
+        // Check conditions for wind chill calculation
+        function updateWindChill() {
+            const windChillElement = document.getElementById('wind-chill');
+
+            // Conditions: Temperature <= 10°C AND Wind speed > 4.8 km/h
+            // For Côte d'Ivoire (28°C), condition is false -> displays N/A
+            if (temperature <= 10 && windSpeed > 4.8) {
+                const windChill = calculateWindChill(temperature, windSpeed);
+                windChillElement.textContent = `${windChill}°C`;
+            } else {
+                windChillElement.textContent = 'N/A';
+            }
+        }
+
+        // Calculate and display wind chill when page loads
+        updateWindChill();
+    </script>
 </body>
 
 </html>

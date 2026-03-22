@@ -309,6 +309,62 @@ h4 {
     margin-bottom: 5rem;
 }
 
+/* ============================================ */
+/* WEATHER ICONS - CORRECTIONS FOR ASSIGNMENT   */
+/* ============================================ */
+
+/* Mobile view: show SVG icon, hide emoji container */
+.weather-icon-mobile {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.weather-icon-desktop {
+    display: none;
+}
+
+/* Pseudo-element for weather icon after Weather heading (desktop only) */
+.weather-section h2::after {
+    content: " ⛅";
+    font-size: 1.8rem;
+    margin-left: 0.5rem;
+}
+
+/* Desktop view (min-width: 769px) */
+@media (min-width: 769px) {
+
+    /* Hide SVG icon on desktop */
+    .weather-icon-mobile {
+        display: none;
+    }
+
+    /* Show emoji container on desktop */
+    .weather-icon-desktop {
+        display: block;
+    }
+
+    .weather-icon-desktop .weather-emoji {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Keep pseudo-element visible on desktop */
+    .weather-section h2::after {
+        display: inline-block;
+    }
+}
+
+/* Mobile view: hide pseudo-element */
+@media (max-width: 768px) {
+    .weather-section h2::after {
+        display: none;
+    }
+}
+
+/* ============================================ */
+/* END OF WEATHER ICON CORRECTIONS              */
+/* ============================================ */
+
 .weather-card {
     background: var(--white);
     border-radius: 20px;
@@ -324,11 +380,6 @@ h4 {
 .weather-main {
     text-align: center;
     flex: 1;
-}
-
-.weather-icon-large .weather-emoji {
-    font-size: 4rem;
-    margin-bottom: 1rem;
 }
 
 .weather-temp {
