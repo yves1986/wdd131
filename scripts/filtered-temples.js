@@ -1,4 +1,4 @@
-// Array of temple objects (10 total)
+// Array of temple objects (7 original + 3 new)
 const temples = [
     {
         templeName: "Aba Nigeria",
@@ -49,26 +49,27 @@ const temples = [
         area: 116642,
         imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
     },
+    // 3 NEW TEMPLES ADDED
     {
-        templeName: "Salt Lake Temple",
-        location: "Salt Lake City, Utah, United States",
-        dedicated: "1893, April, 6",
-        area: 253015,
-        imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/salt-lake-temple/400x250/salt-lake-temple-37762.jpg"
+        templeName: "Abidjan Côte d'Ivoire",
+        location: "Abidjan, Côte d'Ivoire",
+        dedicated: "2018, May, 17",
+        area: 13656,
+        imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/abidjan-cote-divoire/400x250/abidjan-cote-divoire-temple-1281452-wallpaper.jpg"
     },
     {
-        templeName: "Rome Italy",
-        location: "Rome, Italy",
-        dedicated: "2019, March, 10",
-        area: 41000,
-        imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/rome-italy/400x250/rome-italy-temple-lds-1292786-wallpaper.jpg"
+        templeName: "Brasília Brazil",
+        location: "Brasília, Brazil",
+        dedicated: "2023, September, 17",
+        area: 25000,
+        imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/brasilia-brazil/400x250/brasilia-brazil-temple-1281485-wallpaper.jpg"
     },
     {
-        templeName: "Nauvoo Illinois",
-        location: "Nauvoo, Illinois, United States",
-        dedicated: "2002, June, 27",
-        area: 54000,
-        imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/nauvoo-illinois/400x250/nauvoo-temple-756884-wallpaper.jpg"
+        templeName: "Manila Philippines",
+        location: "Manila, Philippines",
+        dedicated: "1984, September, 25",
+        area: 26683,
+        imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/manila-philippines/400x250/manila-philippines-temple-1281455-wallpaper.jpg"
     }
 ];
 
