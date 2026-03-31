@@ -4,34 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temple Album - Filtered Gallery</title>
-    <meta name="description" content="A gallery of LDS temples with filtering options">
-    <meta name="author" content="Djeamin Yves">
+    <title>LDS Temple Album - Enhanced</title>
+    <meta name="description" content="Dynamic temple picture album with filtering capabilities">
+    <meta name="author" content="Your Name">
     <link rel="stylesheet" href="styles/filtered-temples.css">
+    <script src="scripts/filtered-temples.js" defer></script>
 </head>
 
 <body>
     <header>
-        <h1>⛪ Temple Album</h1>
+        <h1>Temple Album</h1>
         <nav>
-            <button id="home" class="active">🏠 Home</button>
-            <button id="old">📜 Old (Pre-1900)</button>
-            <button id="new">✨ New (Post-2000)</button>
-            <button id="large">🏛️ Large (>90,000 sq ft)</button>
-            <button id="small">📏 Small (<10,000 sq ft)</button>
+            <button id="home">Home</button>
+            <button id="old">Old (Pre-1900)</button>
+            <button id="new">New (Post-2000)</button>
+            <button id="large">Large (>90,000 sq ft)</button>
+            <button id="small">Small (<10,000 sq ft)</button>
         </nav>
     </header>
 
     <main>
-        <div id="temple-cards" class="grid-container"></div>
+        <div id="temple-cards" class="grid"></div>
     </main>
 
     <footer>
-        <p>&copy; <span id="year"></span> Djeamin Yves | Temple Album</p>
-        <p>Last Modified: <span id="lastModified"></span></p>
+        <p>&copy; <span id="currentyear"></span> Your Name | Last Modified: <span id="lastModified"></span></p>
     </footer>
-
-    <script src="scripts/filtered-temples.js" defer></script>
 </body>
 
 </html>
