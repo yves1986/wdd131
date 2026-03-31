@@ -1,4 +1,4 @@
-// Array of temple objects (7 original + 3 added)
+// Array of temple objects (7 original + 3 added = 10 total)
 const temples = [
     {
         templeName: "Aba Nigeria",
@@ -49,7 +49,7 @@ const temples = [
         area: 116642,
         imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
     },
-    // ADD 3 MORE TEMPLES HERE
+    // 3 additional temples added by student
     {
         templeName: "Salt Lake Temple",
         location: "Salt Lake City, Utah, United States",
@@ -73,14 +73,24 @@ const temples = [
     }
 ];
 
-// Function to display temples
+// Function to display temples in cards
 function displayTemples(filteredTemples) {
     const container = document.getElementById("temple-cards");
+    if (!container) return;
+
     container.innerHTML = "";
+
+    if (filteredTemples.length === 0) {
+        container.innerHTML = "<p class='no-results'>No temples match this filter.</p>";
+        return;
+    }
 
     filteredTemples.forEach(temple => {
         const card = document.createElement("div");
         card.className = "card";
+
+        // Extract year from dedicated string (format: "YYYY, Month, Day")
+        const year = parseInt(temple.dedicated.split(",")[0]);
 
         card.innerHTML = `
       <h3>${temple.templeName}</h3>
@@ -117,16 +127,69 @@ function filterSmall() {
     return temples.filter(temple => temple.area < 10000);
 }
 
-// Event listeners for navigation buttons
-document.getElementById("home").addEventListener("click", () => displayTemples(temples));
-document.getElementById("old").addEventListener("click", () => displayTemples(filterOld()));
-document.getElementById("new").addEventListener("click", () => displayTemples(filterNew()));
-document.getElementById("large").addEventListener("click", () => displayTemples(filterLarge()));
-document.getElementById("small").addEventListener("click", () => displayTemples(filterSmall()));
+// Set up event listeners for navigation links
+function setupEventListeners() {
+    const homeLink = document.getElementById("home");
+    const oldLink = document.getElementById("old");
+    const newLink = document.getElementById("new");
+    const largeLink = document.getElementById("large");
+    const smallLink = document.getElementById("small");
 
-// Initialize with all temples
-displayTemples(temples);
+    if (homeLink) {
+        homeLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            displayTemples(temples);
+        });
+    }
 
-// Footer: Copyright year and last modified date
-document.getElementById("currentyear").textContent = new Date().getFullYear();
-document.getElementById("lastModified").textContent = document.lastModified;
+    if (oldLink) {
+        oldLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            displayTemples(filterOld());
+        });
+    }
+
+    if (newLink) {
+        newLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            displayTemples(filterNew());
+        });
+    }
+
+    if (largeLink) {
+        largeLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            displayTemples(filterLarge());
+        });
+    }
+
+    if (smallLink) {
+        smallLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            displayTemples(filterSmall());
+        });
+    }
+}
+
+// Set footer copyright year and last modified date
+function setFooterDates() {
+    const yearSpan = document.getElementById("currentyear");
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+
+    const lastModifiedSpan = document.getElementById("lastModified");
+    if (lastModifiedSpan) {
+        lastModifiedSpan.textContent = document.lastModified;
+    }
+}
+
+// Initialize the page
+function init() {
+    displayTemples(temples);
+    setupEventListeners();
+    setFooterDates();
+}
+
+// Run init when DOM is fully loaded
+document.addEventListener("DOMContentLoaded", init);
