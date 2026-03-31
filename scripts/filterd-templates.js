@@ -1,4 +1,4 @@
-// Array of temple objects (7 original + 3 added = 10 total)
+// Array of temple objects (10 total)
 const temples = [
     {
         templeName: "Aba Nigeria",
@@ -49,7 +49,6 @@ const temples = [
         area: 116642,
         imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
     },
-    // 3 additional temples added by student
     {
         templeName: "Salt Lake Temple",
         location: "Salt Lake City, Utah, United States",
@@ -73,10 +72,13 @@ const temples = [
     }
 ];
 
-// Function to display temples in cards
+// Function to display temples
 function displayTemples(filteredTemples) {
     const container = document.getElementById("temple-cards");
-    if (!container) return;
+    if (!container) {
+        console.error("Container 'temple-cards' not found!");
+        return;
+    }
 
     container.innerHTML = "";
 
@@ -88,9 +90,6 @@ function displayTemples(filteredTemples) {
     filteredTemples.forEach(temple => {
         const card = document.createElement("div");
         card.className = "card";
-
-        // Extract year from dedicated string (format: "YYYY, Month, Day")
-        const year = parseInt(temple.dedicated.split(",")[0]);
 
         card.innerHTML = `
       <h3>${temple.templeName}</h3>
@@ -127,7 +126,7 @@ function filterSmall() {
     return temples.filter(temple => temple.area < 10000);
 }
 
-// Set up event listeners for navigation links
+// Set up event listeners
 function setupEventListeners() {
     const homeLink = document.getElementById("home");
     const oldLink = document.getElementById("old");
@@ -135,61 +134,48 @@ function setupEventListeners() {
     const largeLink = document.getElementById("large");
     const smallLink = document.getElementById("small");
 
-    if (homeLink) {
-        homeLink.addEventListener("click", (e) => {
-            e.preventDefault();
-            displayTemples(temples);
-        });
-    }
+    if (homeLink) homeLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        displayTemples(temples);
+    });
 
-    if (oldLink) {
-        oldLink.addEventListener("click", (e) => {
-            e.preventDefault();
-            displayTemples(filterOld());
-        });
-    }
+    if (oldLink) oldLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        displayTemples(filterOld());
+    });
 
-    if (newLink) {
-        newLink.addEventListener("click", (e) => {
-            e.preventDefault();
-            displayTemples(filterNew());
-        });
-    }
+    if (newLink) newLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        displayTemples(filterNew());
+    });
 
-    if (largeLink) {
-        largeLink.addEventListener("click", (e) => {
-            e.preventDefault();
-            displayTemples(filterLarge());
-        });
-    }
+    if (largeLink) largeLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        displayTemples(filterLarge());
+    });
 
-    if (smallLink) {
-        smallLink.addEventListener("click", (e) => {
-            e.preventDefault();
-            displayTemples(filterSmall());
-        });
-    }
+    if (smallLink) smallLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        displayTemples(filterSmall());
+    });
 }
 
-// Set footer copyright year and last modified date
+// Set footer dates
 function setFooterDates() {
     const yearSpan = document.getElementById("currentyear");
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-    }
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
     const lastModifiedSpan = document.getElementById("lastModified");
-    if (lastModifiedSpan) {
-        lastModifiedSpan.textContent = document.lastModified;
-    }
+    if (lastModifiedSpan) lastModifiedSpan.textContent = document.lastModified;
 }
 
-// Initialize the page
+// Initialize
 function init() {
+    console.log("JavaScript loaded and running!");
     displayTemples(temples);
     setupEventListeners();
     setFooterDates();
 }
 
-// Run init when DOM is fully loaded
+// Start everything when DOM is ready
 document.addEventListener("DOMContentLoaded", init);
