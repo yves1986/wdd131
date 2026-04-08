@@ -1,0 +1,211 @@
+/* Product Review Form CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #F5F5DC;
+    color: #4A4A4A;
+    line-height: 1.6;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #2C5F2D;
+    border-radius: 10px;
+}
+
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    color: #F5F5DC;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #F5F5DC;
+    font-size: 1.1rem;
+}
+
+/* Main */
+main {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #2C5F2D;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.required {
+    color: #e74c3c;
+    font-size: 1.2rem;
+}
+
+/* Select and Input */
+select,
+input[type="date"],
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+select:focus,
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #97BC62;
+}
+
+/* Rating Stars */
+.rating-label {
+    margin-bottom: 10px;
+}
+
+.rating-stars {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.star-option {
+    position: relative;
+}
+
+.star-option input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.star-option label {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+    margin-bottom: 0;
+}
+
+.star-option input:checked+label {
+    background-color: #97BC62;
+    color: #2C5F2D;
+    transform: scale(1.05);
+}
+
+.star-option input:focus+label {
+    outline: 2px solid #2C5F2D;
+}
+
+/* Checkbox Group */
+.checkbox-group {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid #eee;
+}
+
+.checkbox-option {
+    margin-bottom: 10px;
+}
+
+.checkbox-option input {
+    margin-right: 10px;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.checkbox-option label {
+    display: inline;
+    font-weight: normal;
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #2C5F2D;
+    color: #F5F5DC;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #1e4520;
+    transform: translateY(-2px);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #2C5F2D;
+    color: #F5F5DC;
+    border-radius: 10px;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    .rating-stars {
+        gap: 8px;
+    }
+
+    .star-option label {
+        padding: 8px 12px;
+        font-size: 1rem;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+}

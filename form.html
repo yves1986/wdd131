@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Review - Mindful Moments</title>
+    <meta name="description" content="Product review form for Mindful Moments products">
+    <meta name="author" content="Yves Gnessenin">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/form.css">
+
+    <!-- JavaScript -->
+    <script src="scripts/form.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Product Review Form</h1>
+        <p>Share your experience with our products</p>
+    </header>
+
+    <main>
+        <form action="review.html" method="get" id="reviewForm">
+            <!-- Product Name -->
+            <div class="form-group">
+                <label for="productName">Product Name <span class="required">*</span></label>
+                <select id="productName" name="productName" required>
+                    <option value="" disabled selected>Select a Product ...</option>
+                </select>
+            </div>
+
+            <!-- Overall Rating -->
+            <div class="form-group">
+                <label class="rating-label">Overall Rating <span class="required">*</span></label>
+                <div class="rating-stars">
+                    <div class="star-option">
+                        <input type="radio" id="star1" name="rating" value="1" required>
+                        <label for="star1">⭐</label>
+                    </div>
+                    <div class="star-option">
+                        <input type="radio" id="star2" name="rating" value="2" required>
+                        <label for="star2">⭐⭐</label>
+                    </div>
+                    <div class="star-option">
+                        <input type="radio" id="star3" name="rating" value="3" required>
+                        <label for="star3">⭐⭐⭐</label>
+                    </div>
+                    <div class="star-option">
+                        <input type="radio" id="star4" name="rating" value="4" required>
+                        <label for="star4">⭐⭐⭐⭐</label>
+                    </div>
+                    <div class="star-option">
+                        <input type="radio" id="star5" name="rating" value="5" required>
+                        <label for="star5">⭐⭐⭐⭐⭐</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Date of Installation -->
+            <div class="form-group">
+                <label for="installDate">Date of Installation <span class="required">*</span></label>
+                <input type="date" id="installDate" name="installDate" required>
+            </div>
+
+            <!-- Useful Features -->
+            <div class="form-group">
+                <label>Which features did you find useful in the product?</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="featureDurability" name="features" value="durability">
+                        <label for="featureDurability">Durability</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="featureEaseOfUse" name="features" value="easeOfUse">
+                        <label for="featureEaseOfUse">Ease of Use</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="featurePerformance" name="features" value="performance">
+                        <label for="featurePerformance">Performance</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="featureDesign" name="features" value="design">
+                        <label for="featureDesign">Design</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Written Review -->
+            <div class="form-group">
+                <label for="writtenReview">Written Review (Optional)</label>
+                <textarea id="writtenReview" name="writtenReview" rows="4"
+                    placeholder="Share your thoughts about the product..."></textarea>
+            </div>
+
+            <!-- User Name -->
+            <div class="form-group">
+                <label for="userName">Your Name (Optional)</label>
+                <input type="text" id="userName" name="userName" placeholder="Enter your name">
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit" class="submit-btn">Submit Review</button>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Mindful Moments | Product Review Form</p>
+        <p>Last Modification: <span id="lastModified"></span></p>
+    </footer>
+</body>
+
+</html>

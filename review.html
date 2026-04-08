@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Confirmation - Mindful Moments</title>
+    <meta name="description" content="Product review confirmation">
+    <meta name="author" content="Yves Gnessenin">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/form.css">
+</head>
+
+<body>
+    <header>
+        <h1>Review Submitted!</h1>
+        <p>Thank you for your feedback</p>
+    </header>
+
+    <main>
+        <div class="confirmation-box">
+            <div class="success-icon">✓</div>
+            <h2>Your review has been successfully submitted</h2>
+            <p>Thank you for taking the time to share your experience with us.</p>
+
+            <div class="review-counter">
+                <h3>Total Reviews Completed</h3>
+                <p class="counter-number" id="reviewCount">0</p>
+            </div>
+
+            <a href="form.html" class="submit-btn"
+                style="display: inline-block; text-align: center; text-decoration: none; margin-top: 20px;">Submit
+                Another Review</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Mindful Moments | Product Review Confirmation</p>
+        <p>Last Modification: <span id="lastModified"></span></p>
+    </footer>
+
+    <style>
+        .confirmation-box {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            background-color: #2C5F2D;
+            color: #F5F5DC;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 3rem;
+        }
+
+        .review-counter {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            border: 2px solid #97BC62;
+        }
+
+        .counter-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #2C5F2D;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h2 {
+            color: #2C5F2D;
+            margin-bottom: 15px;
+        }
+    </style>
+
+    <script>
+        // Update review counter with localStorage
+        function updateReviewCounter() {
+            let reviewCount = localStorage.getItem('reviewCount');
+
+            if (reviewCount === null) {
+                reviewCount = 0;
+            }
+
+            // Increment counter (only when page loads from form submission)
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.toString() !== '') {
+                reviewCount = parseInt(reviewCount) + 1;
+                localStorage.setItem('reviewCount', reviewCount);
+            }
+
+            document.getElementById('reviewCount').textContent = reviewCount;
+        }
+
+        function updateLastModified() {
+            const lastModifiedSpan = document.getElementById('lastModified');
+            if (lastModifiedSpan) {
+                const now = new Date();
+                const formattedDate = `${now.getMonth() + 1}/${now.getDate()}/${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
+                lastModifiedSpan.textContent = formattedDate;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            updateReviewCounter();
+            updateLastModified();
+        });
+    </script>
+</body>
+
+</html>
