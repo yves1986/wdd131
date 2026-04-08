@@ -204,6 +204,10 @@ footer {
     border-radius: 10px;
 }
 
+footer p {
+    font-family: 'Open Sans', sans-serif;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     body {
