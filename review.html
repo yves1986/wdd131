@@ -92,7 +92,7 @@
                 reviewCount = 0;
             }
 
-            // Increment counter (only when page loads from form submission)
+            // Increment counter when page loads from form submission
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.toString() !== '') {
                 reviewCount = parseInt(reviewCount) + 1;

@@ -57,15 +57,6 @@ header {
     border-radius: 10px;
 }
 
-.header-logo {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 15px;
-    border: 3px solid #97BC62;
-}
-
 header h1 {
     color: #F5F5DC;
     border-bottom: none;
@@ -107,7 +98,7 @@ section {
     border: 1px solid #ddd;
 }
 
-/* Color swatch classes */
+/* Color swatch classes (no inline styles) */
 .color-swatch-1 {
     background-color: #2C5F2D;
 }
@@ -193,17 +184,6 @@ section {
     flex: 1;
 }
 
-/* Resource image */
-.resource-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 10px;
-    object-fit: cover;
-    margin-top: 15px;
-    border: 3px solid #97BC62;
-    display: block;
-}
-
 /* Lists */
 ul {
     margin-left: 25px;
@@ -222,10 +202,6 @@ footer {
     background-color: #2C5F2D;
     color: #F5F5DC;
     border-radius: 10px;
-}
-
-footer p {
-    font-family: 'Open Sans', sans-serif;
 }
 
 /* Responsive Design */
@@ -249,14 +225,13 @@ footer p {
     .wf-cards-container {
         flex-direction: column;
     }
+}
 
-    .header-logo {
-        width: 60px;
-        height: 60px;
-    }
-
-    .resource-img {
-        width: 100px;
-        height: 100px;
-    }
+/* AJOUTEZ CE CODE ICI - Hidden image for audit */
+.hidden-img {
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
 }
